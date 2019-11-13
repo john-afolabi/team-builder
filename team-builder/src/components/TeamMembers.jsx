@@ -50,21 +50,25 @@ function TeamMembers() {
 
   return (
     <div className="App">
-      <Form
-        onNameChange={onNameChange}
-        onEmailChange={onEmailChange}
-        onRoleChange={onRoleChange}
-        onFormSubmit={onFormSubmit}
-        teamForm={teamForm}
-      />
+      <div className="form">
+        <Form
+          onNameChange={onNameChange}
+          onEmailChange={onEmailChange}
+          onRoleChange={onRoleChange}
+          onFormSubmit={onFormSubmit}
+          teamForm={teamForm}
+        />
+      </div>
 
-      {teamMembers.map(member => (
-        <div key={member.id}>
-          <p>Name: {member.name}</p>
-          <p>Email: {member.email}</p>
-          <p>Role: {member.role}</p>
-        </div>
-      ))}
+      <div className="team-member-container">
+        {teamMembers.map(member => (
+          <div className="team-member-card" key={member.id}>
+            <p>Name: {member.name}</p>
+            <p>Email: {member.email}</p>
+            <p>Role: {member.role}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
